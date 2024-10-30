@@ -1,0 +1,13 @@
+{
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "prettier.jsxSingleQuote": false,
+  "prettier.singleQuote": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.validate": ["javascript", "typescript"],
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
