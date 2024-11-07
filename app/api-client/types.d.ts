@@ -44,6 +44,8 @@ export interface ApiI18n {
   ar: string;
 }
 
+export type Languages = keyof ApiI18n;
+
 export interface ApiProduct {
   productId: string;
   userId: string;

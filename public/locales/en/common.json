@@ -14,7 +14,7 @@
 	"updatedAt": "Updated At",
 	"home": "Home",
 	"products": "Products",
-	"categories": "Categoires",
+	"categories": "Categories",
 	"submit": "Submit",
 	"back": "Go Back",
 	"deleteConfirm": "Are you sure you want to delete {{item}}?",
@@ -22,5 +22,8 @@
 	"lang": {
 		"en": "English",
 		"ar": "Arabic"
-	}
+	},
+	"created": "Created",
+	"updated": "Updated",
+	"delete": "Delete"
 }

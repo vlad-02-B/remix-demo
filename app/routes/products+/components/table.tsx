@@ -1,11 +1,13 @@
 import {useTranslation} from 'react-i18next';
 import {useSnackbar} from 'notistack';
 
-import {Paper, Table, TableBody, TableContainer} from '@mui/material';
+import {Paper, Table, TableBody, TableContainer, Typography, useTheme} from '@mui/material';
+import {useMediaQuery} from '@mui/system';
 
 import {useMutationProductsDelete} from '~/services/products';
 
 import {TableRowEmpty} from '~/global/components/table-row-empty';
+import MobileTable from '~/global/components/MobileTable/mobile-table';
 
 import {ApiProduct} from '~/api-client/types';
 
@@ -17,9 +19,11 @@ import {ProductsTableRowSkeleton} from './table-row-skeleton';
 //
 
 export const ProductsTable = ({data, isLoading}: {data?: ApiProduct[]; isLoading: boolean}) => {
-  const {t} = useTranslation(['common']);
+  const {t} = useTranslation(['common', 'products']);
   const {enqueueSnackbar} = useSnackbar();
+  const theme = useTheme();
   const deleteItem = useMutationProductsDelete();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   //
 
@@ -39,10 +43,16 @@ export const ProductsTable = ({data, isLoading}: {data?: ApiProduct[]; isLoading
     );
   };
 
-  //
-  //
+  if (!data?.length)
+    return (
+      <Typography textAlign="center" variant="h5">
+        {t('products:noProducts')}
+      </Typography>
+    );
 
-  return (
+  return isMobile ? (
+    <MobileTable products={data} doDeleteItem={doDeleteItem} />
+  ) : (
     <TableContainer component={Paper}>
       <Table sx={{minWidth: 650}}>
         <ProductsTableHead />
