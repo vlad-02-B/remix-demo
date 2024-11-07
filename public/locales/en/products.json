@@ -7,5 +7,6 @@
 	"category": "Category",
 	"quantity": "Quantity",
 	"price": "Price",
-	"priceSale": "Sale Price"
+	"priceSale": "Sale Price",
+	"noProducts": "No Products Available"
 }
