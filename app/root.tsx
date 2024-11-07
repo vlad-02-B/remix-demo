@@ -23,7 +23,7 @@ export const clientLoader = async ({params}: ClientLoaderFunctionArgs) => {
   return {lang, dir: lang === 'ar' ? 'rtl' : 'ltr'};
 };
 
-// clientLoader.hydrate = true;
+clientLoader.hydrate = true;
 
 export default function App() {
   const dehydratedState = useDehydratedState();
