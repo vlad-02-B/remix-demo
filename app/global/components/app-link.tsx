@@ -2,12 +2,12 @@ import {LinkProps} from '@remix-run/react';
 
 import {Link as MuiLink, LinkProps as MuiLinkProps} from '@mui/material';
 
-import {I18nLink} from './i18n-link';
+import MuiAppI18nLink from '~/global/components/MuiAppI18Link/MuiAppI18Link';
 
 //
 //
 
-type MuiAppI18nLinkProps = LinkProps & Omit<MuiLinkProps, 'href'>;
+export type MuiAppI18nLinkProps = LinkProps & Omit<MuiLinkProps, 'href'>;
 
 export const AppLink: React.FC<MuiAppI18nLinkProps> = ({
   viewTransition = true,
@@ -15,8 +15,7 @@ export const AppLink: React.FC<MuiAppI18nLinkProps> = ({
   ...props
 }: MuiAppI18nLinkProps) => {
   return (
-    // @ts-expect-error - `to` is not allowed in MuiLinkProps
-    <MuiLink viewTransition={viewTransition} LinkComponent={I18nLink} href={props.to} {...props}>
+    <MuiLink viewTransition={viewTransition} component={MuiAppI18nLink} {...props}>
       {children}
     </MuiLink>
   );
