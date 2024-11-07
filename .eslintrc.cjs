@@ -88,6 +88,7 @@ module.exports = {
         "plugin:prettier/recommended",
       ],
       rules: {
+        'react/prop-types': 'off',
         'react/jsx-curly-brace-presence': [1, { props: 'never', children: 'never' }],
         'import/default': 'off',
         'import/no-named-as-default': 'off',
