@@ -1,5 +1,5 @@
 import {useTranslation} from 'react-i18next';
-import {useSnackbar} from 'notistack';
+import {useSnackbar, VariantType} from 'notistack';
 
 import {Paper, Table, TableBody, TableContainer, Typography, useTheme} from '@mui/material';
 import {useMediaQuery} from '@mui/system';
@@ -34,10 +34,11 @@ export const ProductsTable = ({data, isLoading}: {data?: ApiProduct[]; isLoading
       {id: item.productId},
       {
         onSuccess: async result => {
-          result?.meta?.message && enqueueSnackbar(result?.meta?.message, {variant: 'success'});
+          result?.meta?.message &&
+            enqueueSnackbar(result?.meta?.message, {variant: 'success' as VariantType});
         },
         onError: err => {
-          enqueueSnackbar(err?.message || 'unknown error', {variant: 'error'});
+          enqueueSnackbar(err?.message || 'unknown error', {variant: 'error' as VariantType});
         },
       },
     );
