@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Links, Meta, Scripts, ScrollRestoration, useLoaderData} from '@remix-run/react';
+import {Links, Meta, Scripts, ScrollRestoration, useRouteLoaderData} from '@remix-run/react';
 import {QueryClientProvider} from '@tanstack/react-query';
 import {withEmotionCache} from '@emotion/react';
 import {useChangeLanguage} from 'remix-i18next/react';
@@ -25,9 +25,9 @@ interface DocumentProps {
 
 export const MuiDocument = withEmotionCache(({children, title}: DocumentProps, emotionCache) => {
   const clientStyleData = React.useContext(EmotionStyleContext);
-  const locale = useLoaderData<typeof RootClientLoader>();
+  const locale = useRouteLoaderData<typeof RootClientLoader>('root');
 
-  useChangeLanguage(locale?.lang);
+  useChangeLanguage(locale?.lang || 'en');
 
   // Only executed on client
   useEnhancedEffect(() => {
